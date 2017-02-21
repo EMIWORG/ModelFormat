@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" []>
+<Xdmf>
+  <Domain>
+    <Grid Name="COMMEMI" GridType="Uniform">
+		<Topology TopologyType="3DRectMesh" Dimensions="12 9 9"/>
+		<Geometry GeometryType="VXVYVZ">
+			<DataItem Dimensions="9" NumberType="Float" Format="HDF">
+				commemi.h5:/Geometry/NodesU
+			</DataItem>
+			<DataItem Dimensions="9" NumberType="Float" Format="HDF">
+				commemi.h5:/Geometry/NodesV
+			</DataItem>
+			<DataItem Dimensions="12" NumberType="Float" Format="HDF">
+				commemi.h5:/Geometry/NodesW
+			</DataItem>
+		</Geometry>
+		<Attribute Name="Rho" AttributeType="Scalar" Center="Cell">
+			<DataItem Dimensions="8 8 11" NumberType="Float" Format="HDF">
+				commemi.h5:/Properties/Rho
+			</DataItem>
+		</Attribute>
+		<Attribute Name="CellType" AttributeType="Scalar" Center="Cell">
+			<DataItem Dimensions="8 8 11" NumberType="Float" Format="HDF">
+				commemi.h5:/Properties/CellType
+			</DataItem>
+		</Attribute>
+    </Grid>
+  </Domain>
+</Xdmf>
