@@ -109,10 +109,10 @@ Code & Description & Status \\ \hline
 
 \subsubsection{Model reference}
 
-The model is anchored in Cartesian (projected) coordinates. The anchor point is in the south-west corner of the model. 
+The model is anchored in Cartesian (projected) coordinates. The anchor point is taken as an origin of the model reference coordinate system. 
 
 \begin{itemize}
-\item X, Y, Z: Cartesian axes of the projected coordinate system. X is positive to the North, Y to the East and Z is positive downward. 
+\item Northing, Easting, Altitude: Cartesian axes of the projected coordinate system. Altitude is in meters above sea level. 
 
 \item U, V, W: Cartesian axes of the model reference frame. U is positive up, V is positive right and W is positive down. A generic point in the model frame has therefore coordinates $(u,v,w)$.
 \end{itemize}
@@ -134,9 +134,9 @@ The coordinates of the anchor point and the projection type can be specified in 
 \begin{tabular}{|l|l|l|l|}
 \hline
 Name & Mandatory & Type & Description \\ \hline
-AnchorX & Yes & float64 & Northing of the anchor point \\ \hline
-AnchorY & Yes & float64 & Easting of the anchor point \\ \hline
-AnchorZ & Yes & float64 & \begin{tabular}[c]{@{}l@{}}Vertical coodinate of the \\ anchor point\end{tabular} \\ \hline
+AnchorNorthing & Yes & float64 & Northing of the anchor point \\ \hline
+AnchorEasting & Yes & float64 & Easting of the anchor point \\ \hline
+AnchorAltitude & Yes & float64 & \begin{tabular}[c]{@{}l@{}}Altitude above sea level \\ of the anchor point\end{tabular} \\ \hline
 Azimuth & Yes & float64 & \begin{tabular}[c]{@{}l@{}}Azimuth of the model reference \\ frame in degrees\end{tabular} \\ \hline
 Projection & No & string & Information about projection. \\ \hline
 \end{tabular}
@@ -152,7 +152,7 @@ A mesh is defined by specifying its geometry and physical properties for each ce
 
 \subsection{Geometry group}
 
-The geometry of a rectilinear mesh is uniquely defined by three data sets \textit{NodesU}, \textit{NodesV} and \textit{NodesW} specifying coordinates of the cell nodes in each direction. The sorting of all the arrays is consistent with the orientation of the U,V,W axes, including the storage order of the properties. Group description is given in Tables \ref{tab:geomattr_rect} and \ref{tab:geomdata_rect}.
+The geometry of a rectilinear mesh is uniquely defined by three data sets \textit{NodesU}, \textit{NodesV} and \textit{NodesW} specifying coordinates of the cell nodes in each direction relative to the anchor point. The sorting of all the arrays is consistent with the orientation of the $U, V, W$ axes, including the storage order of the properties. Group description is given in Tables \ref{tab:geomattr_rect} and \ref{tab:geomdata_rect}.
 
 \begin{table}[]
 \centering
